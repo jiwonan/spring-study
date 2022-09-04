@@ -18,7 +18,7 @@ public class Member extends BaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
-    private Long Id;
+    private Long id;
     private String username;
     private int age;
 
@@ -41,7 +41,6 @@ public class Member extends BaseEntity {
         this.username = username;
         this.age = age;
     }
-
 
     public void changeTeam(Team team) {
         this.team = team;
