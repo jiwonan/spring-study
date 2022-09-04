@@ -37,5 +37,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     Member findMemberByUsername(String username);
     Optional<Member> findOptionalByUsername(String username);
 
-    Slice<Member> findByAge(int age, Pageable pageable);
+    // List나 Slice도 사용할 수 있음.
+    Page<Member> findByAge(int age, Pageable pageable);
 }
