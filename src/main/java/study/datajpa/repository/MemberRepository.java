@@ -38,5 +38,8 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     Optional<Member> findOptionalByUsername(String username);
 
     // List나 Slice도 사용할 수 있음.
+    // count 쿼리를 분리하면 성능이 좋아짐.
+    @Query(value = "select m from Member left join m.team t",
+           countQuery = "select count (m.username) from Member m")
     Page<Member> findByAge(int age, Pageable pageable);
 }
